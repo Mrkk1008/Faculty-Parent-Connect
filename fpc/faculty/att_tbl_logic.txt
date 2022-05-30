@@ -1,0 +1,49 @@
+                    <!-- My Table Start -->
+                    <div class="row m-t-30">
+                        <div class="col-md-12">
+                            <!-- DATA TABLE-->
+                                <?php
+                                    $resattrec = mysqli_query($link, "select * from attedence where faculty_no='".$_SESSION['faculty_no']."' AND dname='".$dname."' group by sem,year,date,subcode,time_start,time_end order by atid DESC");
+                                    while($rowatt = mysqli_fetch_array($resattrec, MYSQLI_BOTH))
+                                    {
+                                ?>                          
+                                                                
+                                <div>
+                                    <div><strong>Sem:<?php echo $rowatt['sem']; ?></strong></div>
+                                </div>
+                                <div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+                                                <th>Enrollment<br>Name</th>
+                                                <th>A</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                            // $c=0;
+                                            // $resstu = mysqli_query($link, "select * from student where sem='$sem' AND status='1' ORDER By erno");
+                                            // while($rowstu = mysqli_fetch_array($resstu, MYSQLI_BOTH) )
+                                            // {
+                                            //     $c++;
+                                        ?>
+                                        <tr>
+                                            <td><?php //echo $rowstu['erno']."<br>".$rowstu['fname']." ".$rowstu['lname'];*/ ?></td>
+                                            <td><?php //echo $c; ?></td>
+                                            
+                                            
+                                        </tr>
+                                    <?php
+                                        //}
+                                    ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <?php
+                                }
+                            ?>
+                            <!-- END DATA TABLE-->
+                        </div>
+                    </div>
+                    <!-- My Table End -->
